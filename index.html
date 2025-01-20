@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAN Tutoring</title>
+    <link rel="stylesheet" href="src/App.css">
+</head>
+<body>
+    <div id="root">
+        <div class="App">
+            <div>
+                <div class="block">
+                    <div class="flex-container">
+                        <img src="/public/san-logo.jpg" alt="SAN-logo" class="image-class"/>
+                        <p class="text-class">SAN Tutoring - Learn, Achieve, Succeed</p>
+                    </div>
+                </div>
+
+                <div class="block button-container">
+                    <button class="button" onclick="toggleContent('aboutContent')">
+                        <img 
+                            src="/public/dropdown.png" 
+                            alt="toggle" 
+                            class="button-icon"
+                            id="aboutIcon"
+                        />
+                        About
+                    </button>
+                    <div id="aboutContent" class="content">
+                        <div class="block">About content goes here...</div>
+                    </div>
+                </div>
+
+                <div class="block button-container">
+                    <button class="button" onclick="toggleContent('credentialsContent')">
+                        <img 
+                            src="/public/dropdown.png" 
+                            alt="toggle" 
+                            class="button-icon"
+                            id="credentialsIcon"
+                        />
+                        Credentials
+                    </button>
+                    <div id="credentialsContent" class="content">
+                        <div class="block">Credentials content goes here...</div>
+                    </div>
+                </div>
+
+                <div id="schedule-button">
+                    <button class="schedule-button" onclick="alert('Redirecting to scheduling page...')">
+                        Schedule Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let activeSection = null;
+
+        function toggleContent(sectionId) {
+            const content = document.getElementById(sectionId);
+            const icon = document.getElementById(sectionId.replace('Content', 'Icon'));
+            
+            if (activeSection === sectionId) {
+                content.classList.remove('show');
+                icon.classList.remove('rotate');
+                activeSection = null;
+            } else {
+                // Hide previous active section
+                if (activeSection) {
+                    document.getElementById(activeSection).classList.remove('show');
+                    document.getElementById(activeSection.replace('Content', 'Icon')).classList.remove('rotate');
+                }
+                
+                content.classList.add('show');
+                icon.classList.add('rotate');
+                activeSection = sectionId;
+            }
+        }
+    </script>
+</body>
+</html>
