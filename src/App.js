@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import About, { Credentials } from './About';
 
 function App() {
   const [activeSection, setActiveSection] = useState(null);
@@ -28,11 +29,11 @@ function App() {
               alt="toggle" 
               className={`button-icon ${activeSection === 'aboutContent' ? 'rotate' : ''}`}
             />
-            About
+            About Us
           </button>
           {activeSection === 'aboutContent' && (
             <div id="aboutContent" className="content show">
-              <div className="block">About content goes here...</div>
+              <About />
             </div>
           )}
         </div>
@@ -47,11 +48,11 @@ function App() {
               alt="toggle" 
               className={`button-icon ${activeSection === 'credentialsContent' ? 'rotate' : ''}`}
             />
-            Credentials
+            Qualifications
           </button>
           {activeSection === 'credentialsContent' && (
             <div id="credentialsContent" className="content show">
-              <div className="block">Credentials content goes here...</div>
+              <Credentials activeSection={activeSection} toggleContent={toggleContent} />
             </div>
           )}
         </div>

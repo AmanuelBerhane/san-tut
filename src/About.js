@@ -1,45 +1,21 @@
 import React from 'react';
 import './App.css'
 
-// Initialize the About section when the DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Create the About section content
-    function createAboutSection() {
-        const aboutContent = document.getElementById('aboutContent');
-        if (!aboutContent) return;
-
-        const content = `
-            <div class="block">
-                <h2>About SAN Tutoring</h2>
-                <p>We are dedicated to helping students achieve their academic goals through personalized tutoring services.</p>
-            </div>
-        `;
-        aboutContent.innerHTML = content;
-    }
-
-    // Create the Credentials section content
-    function createCredentialsSection() {
-        const credentialsContent = document.getElementById('credentialsContent');
-        if (!credentialsContent) return;
-
-        const content = `
-            <div class="block">
-                <h2>Our Credentials</h2>
-                <p>Our tutors are highly qualified professionals with extensive experience in education.</p>
-            </div>
-        `;
-        credentialsContent.innerHTML = content;
-    }
-
-    // Initialize sections
-    createAboutSection();
-    createCredentialsSection();
-});
-
-// Export for potential module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { createAboutSection, createCredentialsSection };
-}
+const About = () => (
+  <div className="block">
+    <h2>About SAN Tutoring</h2>
+    <p>
+      SAN Tutoring is dedicated to empowering students to achieve their academic goals through personalized, high-quality tutoring services. Our mission is to foster a love of learning, build confidence, and help every student reach their full potential.
+    </p>
+    <ul style={{ textAlign: 'left', maxWidth: '700px', margin: '20px auto', fontSize: '18px' }}>
+      <li>Experienced, certified educators passionate about teaching</li>
+      <li>Customized lesson plans tailored to each student's needs</li>
+      <li>Support for a wide range of subjects and grade levels</li>
+      <li>Flexible scheduling and online or in-person sessions</li>
+      <li>Proven track record of student success</li>
+    </ul>
+  </div>
+);
 
 const Credentials = ({ activeSection, toggleContent }) => {
   return (
@@ -97,4 +73,5 @@ const ScheduleButton = () => {
   );
 };
 
+export default About;
 export { Credentials, ScheduleButton };
